@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on yao hsiao</title>
+    <link>https://yaohsiaopid.github.io/categories/</link>
+    <description>Recent content in Categories on yao hsiao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	<atom:link href="https://yaohsiaopid.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gre</title>
+      <link>https://yaohsiaopid.github.io/categories/gre/</link>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/categories/gre/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Zybo</title>
+      <link>https://yaohsiaopid.github.io/categories/zybo/</link>
+      <pubDate>Sat, 23 Feb 2019 22:34:55 +0800</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/categories/zybo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>實習</title>
+      <link>https://yaohsiaopid.github.io/categories/%E5%AF%A6%E7%BF%92/</link>
+      <pubDate>Sat, 31 Aug 2019 13:39:27 +0800</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/categories/%E5%AF%A6%E7%BF%92/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
