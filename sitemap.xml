@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://yaohsiaopid.github.io/posts/verilog_excerpts/</loc>
+    <lastmod>2019-10-17T14:33:16+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://yaohsiaopid.github.io/posts/2019%E8%B6%A8%E5%8B%A2%E5%AF%A6%E7%BF%92%E5%BF%83%E5%BE%97/</loc>
     <lastmod>2019-08-31T13:39:27+08:00</lastmod>
   </url>
@@ -46,13 +51,13 @@
   </url>
   
   <url>
-    <loc>https://yaohsiaopid.github.io/tags/gre/</loc>
+    <loc>https://yaohsiaopid.github.io/categories/gre/</loc>
     <lastmod>2019-06-26T00:00:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://yaohsiaopid.github.io/categories/gre/</loc>
+    <loc>https://yaohsiaopid.github.io/tags/gre/</loc>
     <lastmod>2019-06-26T00:00:00+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -63,7 +68,7 @@
   
   <url>
     <loc>https://yaohsiaopid.github.io/posts/</loc>
-    <lastmod>2019-08-31T13:39:27+08:00</lastmod>
+    <lastmod>2019-10-17T14:33:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -82,6 +87,18 @@
   </url>
   
   <url>
+    <loc>https://yaohsiaopid.github.io/categories/verilog/</loc>
+    <lastmod>2019-10-17T14:33:16+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yaohsiaopid.github.io/tags/verilog/</loc>
+    <lastmod>2019-10-17T14:33:16+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://yaohsiaopid.github.io/categories/zybo/</loc>
     <lastmod>2019-02-23T22:34:55+08:00</lastmod>
     <priority>0</priority>
@@ -89,18 +106,18 @@
   
   <url>
     <loc>https://yaohsiaopid.github.io/</loc>
+    <lastmod>2019-10-17T14:33:16+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yaohsiaopid.github.io/categories/%E5%AF%A6%E7%BF%92/</loc>
     <lastmod>2019-08-31T13:39:27+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://yaohsiaopid.github.io/tags/%E5%AF%A6%E7%BF%92/</loc>
-    <lastmod>2019-08-31T13:39:27+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://yaohsiaopid.github.io/categories/%E5%AF%A6%E7%BF%92/</loc>
     <lastmod>2019-08-31T13:39:27+08:00</lastmod>
     <priority>0</priority>
   </url>
