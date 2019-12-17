@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://yaohsiaopid.github.io/posts/gpu_notes/</loc>
+    <lastmod>2019-12-01T22:34:55+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://yaohsiaopid.github.io/posts/verilog_excerpts/</loc>
     <lastmod>2019-10-17T14:33:16+08:00</lastmod>
   </url>
@@ -23,21 +28,6 @@
   </url>
   
   <url>
-    <loc>https://yaohsiaopid.github.io/posts/8051-1/</loc>
-    <lastmod>2019-01-25T21:42:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yaohsiaopid.github.io/tags/8051/</loc>
-    <lastmod>2019-01-25T21:42:45+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://yaohsiaopid.github.io/about/</loc>
-  </url>
-  
-  <url>
     <loc>https://yaohsiaopid.github.io/about/</loc>
   </url>
   
@@ -51,8 +41,8 @@
   </url>
   
   <url>
-    <loc>https://yaohsiaopid.github.io/categories/gre/</loc>
-    <lastmod>2019-06-26T00:00:00+08:00</lastmod>
+    <loc>https://yaohsiaopid.github.io/categories/gpu/</loc>
+    <lastmod>2019-12-01T22:34:55+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -63,12 +53,18 @@
   </url>
   
   <url>
+    <loc>https://yaohsiaopid.github.io/categories/gre/</loc>
+    <lastmod>2019-06-26T00:00:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://yaohsiaopid.github.io/contact/</loc>
   </url>
   
   <url>
     <loc>https://yaohsiaopid.github.io/posts/</loc>
-    <lastmod>2019-10-17T14:33:16+08:00</lastmod>
+    <lastmod>2019-12-01T22:34:55+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -82,18 +78,18 @@
   
   <url>
     <loc>https://yaohsiaopid.github.io/tags/</loc>
-    <lastmod>2019-01-25T21:42:45+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://yaohsiaopid.github.io/categories/verilog/</loc>
-    <lastmod>2019-10-17T14:33:16+08:00</lastmod>
+    <lastmod>2019-06-26T00:00:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://yaohsiaopid.github.io/tags/verilog/</loc>
+    <lastmod>2019-10-17T14:33:16+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yaohsiaopid.github.io/categories/verilog/</loc>
     <lastmod>2019-10-17T14:33:16+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -106,18 +102,18 @@
   
   <url>
     <loc>https://yaohsiaopid.github.io/</loc>
-    <lastmod>2019-10-17T14:33:16+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://yaohsiaopid.github.io/categories/%E5%AF%A6%E7%BF%92/</loc>
-    <lastmod>2019-08-31T13:39:27+08:00</lastmod>
+    <lastmod>2019-12-01T22:34:55+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://yaohsiaopid.github.io/tags/%E5%AF%A6%E7%BF%92/</loc>
+    <lastmod>2019-08-31T13:39:27+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yaohsiaopid.github.io/categories/%E5%AF%A6%E7%BF%92/</loc>
     <lastmod>2019-08-31T13:39:27+08:00</lastmod>
     <priority>0</priority>
   </url>
