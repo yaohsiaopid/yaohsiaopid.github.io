@@ -57,7 +57,7 @@
 
     
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.65.2" />
   </head>
 
   <body class=" ">
@@ -117,55 +117,55 @@
       </header>
 
       <div>
-        
-
-<h1 id="achievement">Achievement</h1>
-
+        <h1 id="achievement">Achievement</h1>
 <p>booting Digilent <strong>zybo-70-20</strong> with prebuilt image</p>
-
 <h1 id="steps">Steps</h1>
-
 <h2 id="required-tools">Required tools</h2>
-
 <ol>
-<li><p>prepare env</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">sudo apt-get update 
+<li>
+<p>prepare env</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">sudo apt-get update 
 sudo apt-get install tofrodos gawk xvfb git libncurses5-dev tftpd zlib1g-dev zlib1g-dev:i386  \
                 libssl-dev flex bison chrpath socat autoconf libtool texinfo gcc-multilib \
                 libsdl1.2-dev libglib2.0-dev screen pax 
-    
+   
 sudo -s
 apt-get install tftpd-hpa
 chmod a+w /var/lib/tftpboot/
 reboot
-    </pre></div></li>
-
-<li><p>PetaLinux <strong>SDK</strong></p>
-
+   
+</code></pre></div></li>
+<li>
+<p>PetaLinux <strong>SDK</strong></p>
 <ul>
-<li><p>go <code>https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/embedded-design-tools.html</code>, <strong>slide down</strong> to download <strong>PetaLinux 20xx.x Installer</strong>
+<li>
+<p>go <code>https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/embedded-design-tools.html</code>, <strong>slide down</strong> to download <strong>PetaLinux 20xx.x Installer</strong>
 <figure>
     <img src="https://yaohsiaopid.github.io/images/installer.png"/> 
 </figure>
-</p></li>
-
-<li><p>go to the downloaded directory then <code>./petalinux-v20xx.xx-final-installer.run /opt/pkg</code> , then follow on screen instruction to install</p></li>
-
-<li><p><code>source /opt/pkg/petalinux/settings.sh</code></p></li>
-
-<li><p><code>which petalinux-create</code> to check if isntalled successfully</p></li>
-</ul></li>
-
-<li><p>obtain pre-built image</p>
-
+</p>
+</li>
+<li>
+<p>go to the downloaded directory then <code>./petalinux-v20xx.xx-final-installer.run /opt/pkg</code> , then follow on screen instruction to install</p>
+</li>
+<li>
+<p><code>source /opt/pkg/petalinux/settings.sh</code></p>
+</li>
+<li>
+<p><code>which petalinux-create</code> to check if isntalled successfully</p>
+</li>
+</ul>
+</li>
+<li>
+<p>obtain pre-built image</p>
 <ul>
 <li>go <a href="https://github.com/Digilent/Petalinux-Zybo-Z7-20/releases/"> https://github.com/Digilent/Petalinux-Zybo-Z7-20/releases/</a> and download latest bsp file</li>
 <li>generate petalinux project <code>petalinux-create -t project -s &lt;path to .bsp file&gt;</code>, then what you need for SD card are in the project-dir/pre-built</li>
 <li>ref: <a href="https://github.com/Digilent/Petalinux-Zybo-Z7-10">https://github.com/Digilent/Petalinux-Zybo-Z7-10</a></li>
-</ul></li>
-
-<li><p>Run the pre-built image from SD and Boot !</p>
-
+</ul>
+</li>
+<li>
+<p>Run the pre-built image from SD and Boot !</p>
 <ul>
 <li>Obtain a microSD card that has its first partition formatted as a FAT filesystem</li>
 <li>Copy pre-built/linux/images/BOOT.BIN and pre-built/linux/images/image.ub to the first partition of your SD card</li>
@@ -174,7 +174,8 @@ reboot
 <li>If not already done to provide power, attach a microUSB cable between the computer and the Zybo Z7</li>
 <li>Open a terminal program (such as minicom) and connect to the Zybo Z7 with 115200/8/N/1 settings (and no Hardware flow control). The Zybo Z7 UART typically shows up as <strong>/dev/ttyUSB1</strong>. I <code>screen /dev/ttyUSB1 115200,cs8,-parenb,-cstopb,-hupcl</code> which meant to be the settings for the serial console of an embedded computer board (115200 8N1)</li>
 <li>Press the PS-SRST button to restart the Zybo Z7. You should see the boot process at the terminal and eventually a root prompt!</li>
-</ul></li>
+</ul>
+</li>
 </ol>
 
       </div>
@@ -213,7 +214,7 @@ reboot
     
       <p>yaohsiaopid at gmail.com</p>
     
-     © 2019
+     © 2020
     
        · 
       Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.

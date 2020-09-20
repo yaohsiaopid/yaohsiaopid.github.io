@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>8051 on yao hsiao</title>
@@ -20,7 +20,7 @@
       <description>EdSim51 This section starts with directly working on EdSim51, and this means this section will do operation with assembly.
 What is EdSim51 ? Basically it simulates a complete embedded system, including LCD, LEDs, keypads, serial.
   edsim screentshot
-  How to program it ?  directly on bare metal &amp;ndash;&amp;gt; assembly :((   Well, its quite low-level, for that you need to manage all the registers, memory, control flow by yourself by writing assembly, which is really hard to read.</description>
+  How to program it ?  directly on bare metal &amp;ndash;&amp;gt; assembly :((  Well, its quite low-level, for that you need to manage all the registers, memory, control flow by yourself by writing assembly, which is really hard to read.</description>
     </item>
     
   </channel>

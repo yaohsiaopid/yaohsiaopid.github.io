@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Gpu on yao hsiao</title>
+    <title>gpu on yao hsiao</title>
     <link>https://yaohsiaopid.github.io/categories/gpu/</link>
-    <description>Recent content in Gpu on yao hsiao</description>
+    <description>Recent content in gpu on yao hsiao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 01 Dec 2019 22:34:55 +0800</lastBuildDate>
@@ -17,8 +17,9 @@
       <pubDate>Sun, 01 Dec 2019 22:34:55 +0800</pubDate>
       
       <guid>https://yaohsiaopid.github.io/posts/gpu_notes/</guid>
-      <description>GPU Cuda intro GPU introduction  memory: global &amp;ndash;&amp;gt; PBSM (per block shared memory) &amp;ndash;&amp;gt; local register multiple stream multi-processors (SM):
- vector machine, share register file, programmable cache    Cuda  Kernel = Many Concurrent Threads  kernel = grid of thread blocks Each thread executes the same code but on the different data based on its threadID threads are grouped into thread blocks  blocks are independent to each other   Thread Level Scheduling - Warp</description>
+      <description>GPU Cuda intro GPU introduction   memory: global &amp;ndash;&amp;gt; PBSM (per block shared memory) &amp;ndash;&amp;gt; local register
+  multiple stream multi-processors (SM):
+ vector machine, share register file, programmable cache    Cuda   Kernel = Many Concurrent Threads  kernel = grid of thread blocks Each thread executes the same code but on the different data based on its threadID threads are grouped into thread blocks  blocks are independent to each other     Thread Level Scheduling - Warp</description>
     </item>
     
   </channel>

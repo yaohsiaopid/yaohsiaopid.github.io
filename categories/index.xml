@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on yao hsiao</title>
@@ -6,12 +6,13 @@
     <description>Recent content in Categories on yao hsiao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Sun, 01 Dec 2019 22:34:55 +0800</lastBuildDate>
     
 	<atom:link href="https://yaohsiaopid.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Gpu</title>
+      <title>gpu</title>
       <link>https://yaohsiaopid.github.io/categories/gpu/</link>
       <pubDate>Sun, 01 Dec 2019 22:34:55 +0800</pubDate>
       
@@ -20,29 +21,11 @@
     </item>
     
     <item>
-      <title>Gre</title>
-      <link>https://yaohsiaopid.github.io/categories/gre/</link>
-      <pubDate>Wed, 26 Jun 2019 00:00:00 +0800</pubDate>
-      
-      <guid>https://yaohsiaopid.github.io/categories/gre/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Verilog</title>
+      <title>verilog</title>
       <link>https://yaohsiaopid.github.io/categories/verilog/</link>
       <pubDate>Thu, 17 Oct 2019 14:33:16 +0800</pubDate>
       
       <guid>https://yaohsiaopid.github.io/categories/verilog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Zybo</title>
-      <link>https://yaohsiaopid.github.io/categories/zybo/</link>
-      <pubDate>Sat, 23 Feb 2019 22:34:55 +0800</pubDate>
-      
-      <guid>https://yaohsiaopid.github.io/categories/zybo/</guid>
       <description></description>
     </item>
     
@@ -52,6 +35,51 @@
       <pubDate>Sat, 31 Aug 2019 13:39:27 +0800</pubDate>
       
       <guid>https://yaohsiaopid.github.io/categories/%E5%AF%A6%E7%BF%92/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gre</title>
+      <link>https://yaohsiaopid.github.io/categories/gre/</link>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 -0700</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/categories/gre/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zybo</title>
+      <link>https://yaohsiaopid.github.io/categories/zybo/</link>
+      <pubDate>Sat, 23 Feb 2019 22:34:55 +0800</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/categories/zybo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>science</title>
+      <link>https://yaohsiaopid.github.io/categories/science/</link>
+      <pubDate>Thu, 24 Jan 2019 15:11:42 +0800</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/categories/science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Development</title>
+      <link>https://yaohsiaopid.github.io/categories/development/</link>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/categories/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://yaohsiaopid.github.io/categories/golang/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/categories/golang/</guid>
       <description></description>
     </item>
     

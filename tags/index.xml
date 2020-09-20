@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on yao hsiao</title>
@@ -6,22 +6,13 @@
     <description>Recent content in Tags on yao hsiao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 26 Jun 2019 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 17 Oct 2019 14:33:16 +0800</lastBuildDate>
     
 	<atom:link href="https://yaohsiaopid.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Gre</title>
-      <link>https://yaohsiaopid.github.io/tags/gre/</link>
-      <pubDate>Wed, 26 Jun 2019 00:00:00 +0800</pubDate>
-      
-      <guid>https://yaohsiaopid.github.io/tags/gre/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Verilog</title>
+      <title>verilog</title>
       <link>https://yaohsiaopid.github.io/tags/verilog/</link>
       <pubDate>Thu, 17 Oct 2019 14:33:16 +0800</pubDate>
       
@@ -35,6 +26,78 @@
       <pubDate>Sat, 31 Aug 2019 13:39:27 +0800</pubDate>
       
       <guid>https://yaohsiaopid.github.io/tags/%E5%AF%A6%E7%BF%92/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gre</title>
+      <link>https://yaohsiaopid.github.io/tags/gre/</link>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 -0700</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/tags/gre/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>8051</title>
+      <link>https://yaohsiaopid.github.io/tags/8051/</link>
+      <pubDate>Fri, 25 Jan 2019 21:42:45 +0800</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/tags/8051/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>development</title>
+      <link>https://yaohsiaopid.github.io/tags/development/</link>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/tags/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://yaohsiaopid.github.io/tags/hugo/</link>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>themes</title>
+      <link>https://yaohsiaopid.github.io/tags/themes/</link>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/tags/themes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>https://yaohsiaopid.github.io/tags/go/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://yaohsiaopid.github.io/tags/golang/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>templates</title>
+      <link>https://yaohsiaopid.github.io/tags/templates/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/tags/templates/</guid>
       <description></description>
     </item>
     

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Science on yao hsiao</title>
+    <title>science on yao hsiao</title>
     <link>https://yaohsiaopid.github.io/categories/science/</link>
-    <description>Recent content in Science on yao hsiao</description>
+    <description>Recent content in science on yao hsiao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 24 Jan 2019 15:11:42 +0800</lastBuildDate>
@@ -17,10 +17,9 @@
       <pubDate>Thu, 24 Jan 2019 15:11:42 +0800</pubDate>
       
       <guid>https://yaohsiaopid.github.io/posts/quantum-computing/</guid>
-      <description> Table of Content  Basic Quantum Theory Quantum computation Quantum algorithm Quantum machine learning algorithm  Preface Why quantum computing ?
+      <description>Table of Content  Basic Quantum Theory Quantum computation Quantum algorithm Quantum machine learning algorithm  Preface Why quantum computing ?
 My understanding:
-Basic Quantum Theory  Bra-Ket notation (Dirac notation)
- $|a\bigg$   Quantum computation Quantum algorithm Quantum machine learning algorithm #anchor </description>
+Basic Quantum Theory  Bra-Ket notation (Dirac notation)  $|a\bigg$    Quantum computation Quantum algorithm Quantum machine learning algorithm #anchor </description>
     </item>
     
   </channel>

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Zybo on yao hsiao</title>
+    <title>zybo on yao hsiao</title>
     <link>https://yaohsiaopid.github.io/categories/zybo/</link>
-    <description>Recent content in Zybo on yao hsiao</description>
+    <description>Recent content in zybo on yao hsiao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 23 Feb 2019 22:34:55 +0800</lastBuildDate>
@@ -13,14 +13,23 @@
     
     <item>
       <title>zybo linux</title>
+      <link>https://yaohsiaopid.github.io/posts/k66f_fxos8700cq/</link>
+      <pubDate>Sat, 23 Feb 2019 22:34:55 +0800</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/posts/k66f_fxos8700cq/</guid>
+      <description>Achievement ref /Users/yaohsiao/Downloads/SDK_2.5.0_FRDM-K66F/boards/frdmk66f/cmsis_driver_examples/i2c/read_accel_value_transfer/cmsis_i2c_read_accel_value_transfer.c</description>
+    </item>
+    
+    <item>
+      <title>zybo linux</title>
       <link>https://yaohsiaopid.github.io/posts/zybo_linux_prebuilt/</link>
       <pubDate>Sat, 23 Feb 2019 22:34:55 +0800</pubDate>
       
       <guid>https://yaohsiaopid.github.io/posts/zybo_linux_prebuilt/</guid>
       <description>Achievement booting Digilent zybo-70-20 with prebuilt image
-Steps Required tools  prepare env
-sudo apt-get update sudo apt-get install tofrodos gawk xvfb git libncurses5-dev tftpd zlib1g-dev zlib1g-dev:i386 \ libssl-dev flex bison chrpath socat autoconf libtool texinfo gcc-multilib \ libsdl1.2-dev libglib2.0-dev screen pax sudo -s apt-get install tftpd-hpa chmod a+w /var/lib/tftpboot/ reboot  PetaLinux SDK
- go https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/embedded-design-tools.html, slide down to download PetaLinux 20xx.x Installer    go to the downloaded directory then .</description>
+Steps Required tools   prepare env
+sudo apt-get update sudo apt-get install tofrodos gawk xvfb git libncurses5-dev tftpd zlib1g-dev zlib1g-dev:i386 \ libssl-dev flex bison chrpath socat autoconf libtool texinfo gcc-multilib \ libsdl1.2-dev libglib2.0-dev screen pax sudo -s apt-get install tftpd-hpa chmod a+w /var/lib/tftpboot/ reboot   PetaLinux SDK
+  go https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/embedded-design-tools.html, slide down to download PetaLinux 20xx.x Installer     go to the downloaded directory then .</description>
     </item>
     
   </channel>

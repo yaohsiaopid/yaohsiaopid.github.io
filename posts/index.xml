@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on yao hsiao</title>
@@ -17,8 +17,9 @@
       <pubDate>Sun, 01 Dec 2019 22:34:55 +0800</pubDate>
       
       <guid>https://yaohsiaopid.github.io/posts/gpu_notes/</guid>
-      <description>GPU Cuda intro GPU introduction  memory: global &amp;ndash;&amp;gt; PBSM (per block shared memory) &amp;ndash;&amp;gt; local register multiple stream multi-processors (SM):
- vector machine, share register file, programmable cache    Cuda  Kernel = Many Concurrent Threads  kernel = grid of thread blocks Each thread executes the same code but on the different data based on its threadID threads are grouped into thread blocks  blocks are independent to each other   Thread Level Scheduling - Warp</description>
+      <description>GPU Cuda intro GPU introduction   memory: global &amp;ndash;&amp;gt; PBSM (per block shared memory) &amp;ndash;&amp;gt; local register
+  multiple stream multi-processors (SM):
+ vector machine, share register file, programmable cache    Cuda   Kernel = Many Concurrent Threads  kernel = grid of thread blocks Each thread executes the same code but on the different data based on its threadID threads are grouped into thread blocks  blocks are independent to each other     Thread Level Scheduling - Warp</description>
     </item>
     
     <item>
@@ -27,8 +28,9 @@
       <pubDate>Thu, 17 Oct 2019 14:33:16 +0800</pubDate>
       
       <guid>https://yaohsiaopid.github.io/posts/verilog_excerpts/</guid>
-      <description>module 3 intro  HSL supports multiple level of abstraction  behavior: algorithm RTL: nets and registers gate: built-in and user-define primitives switch  Abstraction example &amp;ndash; divided by 2
- behavioral:   always @(din) // block executed on every change in `din`  dout = din/2;   RTL:  always @(posedge clk) dout &amp;lt;= din &amp;gt;&amp;gt; 1; //speicial &amp;#34;nonblocking&amp;#34; assignment   Structural  FD1 op[3:0] ( .</description>
+      <description>module 3 intro   HSL supports multiple level of abstraction
+ behavior: algorithm RTL: nets and registers gate: built-in and user-define primitives switch    Abstraction example &amp;ndash; divided by 2
+ behavioral:  always @(din) // block executed on every change in `din`  dout = din/2;  RTL:  always @(posedge clk) dout &amp;lt;= din &amp;gt;&amp;gt; 1; //speicial &amp;#34;nonblocking&amp;#34; assignment  Structural  FD1 op[3:0] ( .</description>
     </item>
     
     <item>
@@ -63,22 +65,25 @@ workshop、讀書會也是很多的，我待的是ML study group，真的是跟�
     <item>
       <title>自修GRE 一戰334 AW 4.0</title>
       <link>https://yaohsiaopid.github.io/posts/gre-prep/</link>
-      <pubDate>Wed, 26 Jun 2019 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 -0700</pubDate>
       
       <guid>https://yaohsiaopid.github.io/posts/gre-prep/</guid>
-      <description>結果 考試日期及地點：一戰2019.06.14 (台大語言中心)
-考試成績：一戰334 (V: 164/ Q: 170) (QVQVQ), AW4.0
-英文能力：
-- 學測英文: 15級
-- TOEFL: 109(L29, R30, W26, S24; 2015.11.21)
-- SAT(pre2016): 2120, essay 7 of 12
-沒事為啥不補習： 純粹想練習英文，曾體驗到英文有一定程度給自己踏入另一個領域的機會；覺得補習麻煩XD
-TL;DR  資料：這裡 背單字：紅寶書亂序版、要你命三千單; 工具:excel 閱讀：速度、Manhattan LSAT PEAR閱讀法，抓重點做到了，大概就330以上了，考試技巧其次 作文：寫呀!?! full-time的自修可以三個月，但part-time、學期中的話四個月  計畫與資料 所有計畫、資源是從這位神人的文章參考的http://bbs.gter.net/thread-1510435-1-1.html，不過是於2013年寫的，所以資源在時間上可能就沒那麼適用(有些是老GRE)，但他的方法、計畫、整理還是很有用。
+      <description>結果 考試日期及地點：一戰2019.06.14 (台大語言中心) 考試成績：一戰334 (V: 164/ Q: 170) (QVQVQ), AW4.0 英文能力：
+ 學測英文: 15級 TOEFL: 109(L29, R30, W26, S24; 2015.11.21) SAT(pre2016): 2120, essay 7 of 12
+沒事為啥不補習： 純粹想練習英文，曾體驗到英文有一定程度給自己踏入另一個領域的機會；覺得補習麻煩XD  TL;DR  資料：這裡 背單字：紅寶書亂序版、要你命三千單; 工具:excel 閱讀：速度、Manhattan LSAT PEAR閱讀法，抓重點做到了，大概就330以上了，考試技巧其次 作文：寫呀!?! full-time的自修可以三個月，但part-time、學期中的話四個月  計畫與資料 所有計畫、資源是從這位神人的文章參考的http://bbs.gter.net/thread-1510435-1-1.html，不過是於2013年寫的，所以資源在時間上可能就沒那麼適用(有些是老GRE)，但他的方法、計畫、整理還是很有用。
 至於資料都放在這裡，以下括號的路徑都是以此資料夾為根目錄。 以下計畫的說明只有大概，detail請參考神人robin.
 Phase 1 紅寶書亂序+3000+長難句+The Economist+Aldaily  day 1 - 14: 紅寶書亂序紙本
-嚴格遵循杨鹏14天原则(/voc/17天搞定GRE單詞.doc)，一天花6-8小時背，個人是把書切成四分、帶著走方便.
-   单词打通后你会发现世界很美好。The Economist可以看懂了，文学作品没有单词障碍了 – crazyrobin
+嚴格遵循杨鹏14天原则(/voc/17天搞定GRE單詞.doc)，一天花6-8小時背，個人是把書切成四分、帶著走方便.   单词打通后你会发现世界很美好。The Economist可以看懂了，文学作品没有单词障碍了 – crazyrobin
   day 15 - 24: 複習紅寶書 + 長難句(每天10句, /reading/楊鵬GRE&amp;amp;GMAT閱讀難句教程.</description>
+    </item>
+    
+    <item>
+      <title>zybo linux</title>
+      <link>https://yaohsiaopid.github.io/posts/k66f_fxos8700cq/</link>
+      <pubDate>Sat, 23 Feb 2019 22:34:55 +0800</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/posts/k66f_fxos8700cq/</guid>
+      <description>Achievement ref /Users/yaohsiao/Downloads/SDK_2.5.0_FRDM-K66F/boards/frdmk66f/cmsis_driver_examples/i2c/read_accel_value_transfer/cmsis_i2c_read_accel_value_transfer.c</description>
     </item>
     
     <item>
@@ -88,9 +93,91 @@ Phase 1 紅寶書亂序+3000+長難句+The Economist+Aldaily  day 1 - 14: 紅寶
       
       <guid>https://yaohsiaopid.github.io/posts/zybo_linux_prebuilt/</guid>
       <description>Achievement booting Digilent zybo-70-20 with prebuilt image
-Steps Required tools  prepare env
-sudo apt-get update sudo apt-get install tofrodos gawk xvfb git libncurses5-dev tftpd zlib1g-dev zlib1g-dev:i386 \ libssl-dev flex bison chrpath socat autoconf libtool texinfo gcc-multilib \ libsdl1.2-dev libglib2.0-dev screen pax sudo -s apt-get install tftpd-hpa chmod a+w /var/lib/tftpboot/ reboot  PetaLinux SDK
- go https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/embedded-design-tools.html, slide down to download PetaLinux 20xx.x Installer    go to the downloaded directory then .</description>
+Steps Required tools   prepare env
+sudo apt-get update sudo apt-get install tofrodos gawk xvfb git libncurses5-dev tftpd zlib1g-dev zlib1g-dev:i386 \ libssl-dev flex bison chrpath socat autoconf libtool texinfo gcc-multilib \ libsdl1.2-dev libglib2.0-dev screen pax sudo -s apt-get install tftpd-hpa chmod a+w /var/lib/tftpboot/ reboot   PetaLinux SDK
+  go https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/embedded-design-tools.html, slide down to download PetaLinux 20xx.x Installer     go to the downloaded directory then .</description>
+    </item>
+    
+    <item>
+      <title>8051 basic usage using EdSim51</title>
+      <link>https://yaohsiaopid.github.io/posts/8051-1/</link>
+      <pubDate>Fri, 25 Jan 2019 21:42:45 +0800</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/posts/8051-1/</guid>
+      <description>EdSim51 This section starts with directly working on EdSim51, and this means this section will do operation with assembly.
+What is EdSim51 ? Basically it simulates a complete embedded system, including LCD, LEDs, keypads, serial.
+  edsim screentshot
+  How to program it ?  directly on bare metal &amp;ndash;&amp;gt; assembly :((  Well, its quite low-level, for that you need to manage all the registers, memory, control flow by yourself by writing assembly, which is really hard to read.</description>
+    </item>
+    
+    <item>
+      <title>Quantum Computing Notes</title>
+      <link>https://yaohsiaopid.github.io/posts/quantum-computing/</link>
+      <pubDate>Thu, 24 Jan 2019 15:11:42 +0800</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/posts/quantum-computing/</guid>
+      <description>Table of Content  Basic Quantum Theory Quantum computation Quantum algorithm Quantum machine learning algorithm  Preface Why quantum computing ?
+My understanding:
+Basic Quantum Theory  Bra-Ket notation (Dirac notation)  $|a\bigg$    Quantum computation Quantum algorithm Quantum machine learning algorithm #anchor </description>
+    </item>
+    
+    <item>
+      <title>Hugo coder wiki</title>
+      <link>https://yaohsiaopid.github.io/posts/hugo-coder-wiki/</link>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/posts/hugo-coder-wiki/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Theme Demo</title>
+      <link>https://yaohsiaopid.github.io/posts/theme-demo/</link>
+      <pubDate>Sun, 08 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/posts/theme-demo/</guid>
+      <description>Style Demo h1 Heading h2 Heading h3 Heading h4 Heading h5 Heading h6 Heading  This is bold text
+This is bold text
+This is italic text
+This is italic text
+Deleted text
+This is text with inline math $\sum_{n=1}^{\infty} 2^{-n} = 1$ and with math blocks:
+$$ \sum_{n=1}^{\infty} 2^{-n} = 1 $$
+   Heading Another heading     text text   text text   text text     Block quotes are written like so.</description>
+    </item>
+    
+    <item>
+      <title>Creating a New Theme</title>
+      <link>https://yaohsiaopid.github.io/posts/creating-a-new-theme/</link>
+      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/posts/creating-a-new-theme/</guid>
+      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
+We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
+    </item>
+    
+    <item>
+      <title>(Hu)go Template Primer</title>
+      <link>https://yaohsiaopid.github.io/posts/hugo-template-primer/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/posts/hugo-template-primer/</guid>
+      <description>Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
+This document is a brief primer on using go templates.</description>
+    </item>
+    
+    <item>
+      <title>Getting Started with Hugo</title>
+      <link>https://yaohsiaopid.github.io/posts/hugoisforlovers/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://yaohsiaopid.github.io/posts/hugoisforlovers/</guid>
+      <description>Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture.
+Save it somewhere specific as we will be using it in the next step.
+More complete instructions are available at installing hugo
+Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
+Follow the following steps:
+ Clone the hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313  Corresponding pseudo commands:</description>
     </item>
     
   </channel>

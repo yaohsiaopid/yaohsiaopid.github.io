@@ -55,7 +55,7 @@
 
     
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.65.2" />
   </head>
 
   <body class=" ">
@@ -115,121 +115,117 @@
       </header>
 
       <div>
-        
-
-<h1 id="gpu">GPU</h1>
-
+        <h1 id="gpu">GPU</h1>
 <h2 id="cuda-intro">Cuda intro</h2>
-
 <h3 id="gpu-introduction">GPU introduction</h3>
-
-<p><img src="https://i.imgur.com/RJaOX7Q.png" alt="" /></p>
-
+<p><img src="https://i.imgur.com/RJaOX7Q.png" alt=""></p>
 <ul>
-<li>memory: global &ndash;&gt; PBSM (per block shared memory) &ndash;&gt; local register</li>
-
-<li><p>multiple stream multi-processors (SM):</p>
-
+<li>
+<p>memory: global &ndash;&gt; PBSM (per block shared memory) &ndash;&gt; local register</p>
+</li>
+<li>
+<p>multiple stream multi-processors (SM):</p>
 <ul>
 <li>vector machine, share register file, programmable cache</li>
 </ul>
-
-<p><img src="https://i.imgur.com/1vfxsXy.png" alt="http://www.ece.lsu.edu/gp/refs/gf100-whitepaper.pdf" /></p></li>
+<p><img src="https://i.imgur.com/1vfxsXy.png" alt="http://www.ece.lsu.edu/gp/refs/gf100-whitepaper.pdf"></p>
+</li>
 </ul>
-
 <h3 id="cuda">Cuda</h3>
-
 <ul>
-<li><p>Kernel = Many Concurrent Threads
-<img src="https://i.imgur.com/zx1Cx8y.png" alt="" /></p>
-
+<li>
+<p>Kernel = Many Concurrent Threads
+<img src="https://i.imgur.com/zx1Cx8y.png" alt=""></p>
 <ul>
 <li>kernel = grid of thread blocks</li>
 <li>Each thread executes the same code but <strong>on the different data based on its threadID</strong></li>
 <li>threads are grouped into thread blocks
-<img src="https://i.imgur.com/pBZ2VJO.png" alt="" /></li>
+<img src="https://i.imgur.com/pBZ2VJO.png" alt=""></li>
 <li>blocks are independent to each other
-<img src="https://i.imgur.com/TgO0qAl.png" alt="" /></li>
-</ul></li>
-
-<li><p>Thread Level Scheduling - Warp</p></li>
-
-<li><p><img src="https://i.imgur.com/5LjZZGJ.jpg" alt="" /></p>
-
+<img src="https://i.imgur.com/TgO0qAl.png" alt=""></li>
+</ul>
+</li>
+<li>
+<p>Thread Level Scheduling - Warp</p>
+</li>
+<li>
+<p><img src="https://i.imgur.com/5LjZZGJ.jpg" alt=""></p>
 <ul>
-<li><p>Once a thread block is scheduled to an SM, threads in the thread block are further partitioned into warps.</p>
-
+<li>Once a thread block is scheduled to an SM, threads in the thread block are further partitioned into warps.
 <ul>
 <li>warp consists of 32 consecutive threads and all threads in a warp are executed in SIMT ie all threads exe the same instructions but on its own private data</li>
 <li>Threads in a warp will be executing the same instruction</li>
-
-<li><p>Instructions are issued per warp
-&gt; Keep the number of threads per block a multiple of warp size (32).
-&gt; Avoid small block sizes: Start with at least 128 or 256 threads per block.
-&gt; Adjust block size up or down according to kernel resource requirements.</p>
-
-<h3 id="cuda-language">cuda language</h3></li>
-</ul></li>
-</ul></li>
-
-<li><p><code>kernelFunc&lt;&lt;&lt; nB, nT, nS, Sid &gt;&gt;&gt;(...);</code></p>
-
+<li>Instructions are issued per warp</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Keep the number of threads per block a multiple of warp size (32).
+Avoid small block sizes: Start with at least 128 or 256 threads per block.
+Adjust block size up or down according to kernel resource requirements.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="cuda-language">cuda language</h3>
+<ul>
+<li>
+<p><code>kernelFunc&lt;&lt;&lt; nB, nT, nS, Sid &gt;&gt;&gt;(...);</code></p>
 <ul>
 <li><code>nB</code>: number of block per grid</li>
 <li><code>nT</code>: number of threads per block</li>
 <li><code>nS</code>: shared memory size</li>
-</ul></li>
-
-<li><p><code>threadIdx; blockIdx; blockDim; gridDim</code></p>
-
+</ul>
+</li>
+<li>
+<p><code>threadIdx; blockIdx; blockDim; gridDim</code></p>
 <ul>
-<li>eg1
-<code>cuda
-dim3 grid(3,2):
+<li>eg1</li>
+</ul>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">dim3 grid(3,2):
 dim3 blk(5,3);
 my_kernel&lt;&lt;&lt; grid, blk&gt;&gt;&gt;();
 // (x,y) or (x,y,z)
-</code></li>
-<li>eg2
-<code>cuda
-// Kernel definition
+</code></pre></div><ul>
+<li>eg2</li>
+</ul>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">// Kernel definition
 __global__ void VecAdd(float* A)
 {
-int i = threadIdx.x * blockDim.x + threadIdx.y;
-A[i] = A[i] + 1;
+    int i = threadIdx.x * blockDim.x + threadIdx.y;
+    A[i] = A[i] + 1;
 } 
 //...
 size=10; dim3 blk(size, size); 
 my_kernel&lt;&lt;&lt; 1, blk &gt;&gt;&gt;(A, size);
-</code></li>
+</code></pre></div><ul>
 <li>blockDim.x: number of threads per block</li>
+<li></li>
+</ul>
+</li>
 <li>
-<br /></li>
-</ul></li>
-
-<li><p>function qualifier:</p>
-
+<p>function qualifier:</p>
 <ul>
 <li><code>__device__</code>: Executed on the device, Callable from the device only</li>
-<li><code>__global__</code>: Executed on the device, <strong>Callable from the host only (must have void return type!)</strong></li>
-</ul></li>
-
-<li><p>Variable qualifier:</p>
-
+<li><code>__global__ </code>: Executed on the device, <strong>Callable from the host only (must have void return type!)</strong></li>
+</ul>
+</li>
+<li>
+<p>Variable qualifier:</p>
 <ul>
 <li><code>__device__</code>: device’s global memory (shared among SMs) space</li>
 <li><code>__constant__</code></li>
 <li><code>__shared__</code>:  in <strong>thread block&rsquo;s</strong> shared memory</li>
-</ul></li>
-
-<li><p>Program compilation</p>
-
+</ul>
+</li>
+<li>
+<p>Program compilation</p>
 <ul>
-<li><img src="https://i.imgur.com/KFZk7wH.png" alt="" /></li>
-</ul></li>
-
-<li><p>Kernel Time Measurement</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cuda" data-lang="cuda">cudaEvent_t start, stop;
+<li><img src="https://i.imgur.com/KFZk7wH.png" alt=""></li>
+</ul>
+</li>
+<li>
+<p>Kernel Time Measurement</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">cudaEvent_t start, stop;
 cudaEventCreate(&amp;start);
 cudaEventCreate(&amp;stop);
 cudaEventRecord(start);
@@ -237,106 +233,112 @@ kernel&lt;&lt;&lt;block, thread&gt;&gt;&gt;();
 cudaEventRecord(stop);
 cudaEventSynchronize(stop);
 float time;
-cudaEventElapsedTime(&amp;time, start, stop);</code></pre></div></li>
-
-<li><p>Dynamic Parallelism</p>
-
+cudaEventElapsedTime(&amp;time, start, stop);
+</code></pre></div></li>
+<li>
+<p>Dynamic Parallelism</p>
 <ul>
 <li>launch new grids from the GPU</li>
 <li><a href="http://on-demand.gputechconf.com/gtc/2012/presentations/S0338-New-Features-in-the-CUDA-Programming-Model.pdf">http://on-demand.gputechconf.com/gtc/2012/presentations/S0338-New-Features-in-the-CUDA-Programming-Model.pdf</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="gpu-architecture">GPU Architecture</h2>
-
 <h3 id="thread-execution">Thread execution</h3>
-
 <ul>
 <li>execution model</li>
 </ul>
-
-<p><img src="https://i.imgur.com/WmxrPpk.png" alt="" /></p>
-
-<p><img src="https://i.imgur.com/k0ijWsk.png" alt="" /></p>
-
-<p><img src="https://i.imgur.com/lJLOxS2.png" alt="" /></p>
-
-<p><img src="https://i.imgur.com/9W7DzDt.png" alt="" /></p>
-
+<p><img src="https://i.imgur.com/WmxrPpk.png" alt=""></p>
+<p><img src="https://i.imgur.com/k0ijWsk.png" alt=""></p>
+<p><img src="https://i.imgur.com/lJLOxS2.png" alt=""></p>
+<p><img src="https://i.imgur.com/9W7DzDt.png" alt=""></p>
 <ul>
-<li>Hardware schedules thread blocks onto available SMs</li>
-
-<li><p>warp</p>
-
+<li>
+<p>Hardware schedules thread blocks onto available SMs</p>
+</li>
+<li>
+<p>warp</p>
 <ul>
 <li>At any time, only one warp is executed per SM</li>
 <li>All threads in a Warp execute the same instruction when selected</li>
 <li>Threads in a wrap execute physically in parallel</li>
-<li>Warps and blocks execute logically in paralle
-<br /></li>
+<li>Warps and blocks execute logically in paralle</li>
 </ul>
-
-<p><img src="https://i.imgur.com/RdK7TaU.png" alt="" /></p></li>
+<p><img src="https://i.imgur.com/RdK7TaU.png" alt=""></p>
+</li>
 </ul>
-
 <h3 id="memory-hierarchy">memory hierarchy</h3>
-
-<p><img src="https://i.imgur.com/OxKdgHC.png" alt="" /></p>
-
+<p><img src="https://i.imgur.com/OxKdgHC.png" alt=""></p>
 <ul>
-<li>registers
-
+<li>
+<p>registers</p>
 <ul>
 <li>consumes zero extra clock cycles per instruction, except
-
 <ul>
 <li>Register memory bank conflicts</li>
-</ul></li>
+</ul>
+</li>
 <li>not indexable
-
 <ul>
 <li><strong>Array variables</strong> always are allocated in <strong>local memory</strong></li>
-</ul></li>
+</ul>
+</li>
 <li>Register spilling: Local memory is used if the register limit is met
-
 <ul>
 <li>limit: cuda6.1:
-
 <ul>
 <li>65K registers per block</li>
 <li>255 registers per thread</li>
-</ul></li>
-</ul></li>
-</ul></li>
-
-<li><p>local memory</p>
-
-<ul>
-<li>Usually when one runs out of SM resources</li>
-<li>&ldquo;local&rdquo; for each thread has its own private area</li>
-<li><strong>Array variables</strong> always are allocated in <strong>local memory</strong></li>
-<li>Stores are cached in L1</li>
-
-<li><p>Not really a “memory” – bytes are stored in global memory (DRAM)
-<img src="https://i.imgur.com/uMnl1h2.png" alt="" /></p></li>
-
-<li><p>eg.</p></li>
 </ul>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">__device__ void distance(int m, int n, int *V){
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>local memory</p>
+<ul>
+<li>
+<p>Usually when one runs out of SM resources</p>
+</li>
+<li>
+<p>&ldquo;local&rdquo; for each thread has its own private area</p>
+</li>
+<li>
+<p><strong>Array variables</strong> always are allocated in <strong>local memory</strong></p>
+</li>
+<li>
+<p>Stores are cached in L1</p>
+</li>
+<li>
+<p>Not really a “memory” – bytes are stored in global memory (DRAM)
+<img src="https://i.imgur.com/uMnl1h2.png" alt=""></p>
+</li>
+<li>
+<p>eg.</p>
+</li>
+</ul>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">__device__ void distance(int m, int n, int *V){
 int i, j, k; // register
 int a[10], b[10], c[10]; // local memory, off-chip DRAM
 ...
-} </pre></div></li>
-
-<li><p>shared memory</p>
-
+} 
+</code></pre></div></li>
+<li>
+<p>shared memory</p>
 <ul>
-<li>shared by all the <strong>threads in a block</strong></li>
-<li>Size: at most 48K per block (CUDA 6.1)</li>
-<li><code>extern __shared__ &lt;type&gt; &lt;name&gt;[]</code> (pg.7)</li>
-
-<li><p>dyanmic allocation: <code>nS</code> in <code>func&lt;&lt;&lt;nB, nT, nS&gt;&gt;&gt;(..);</code></p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cuda" data-lang="cuda">extern __shared__ int S[][];
+<li>
+<p>shared by all the <strong>threads in a block</strong></p>
+</li>
+<li>
+<p>Size: at most 48K per block (CUDA 6.1)</p>
+</li>
+<li>
+<p><code>extern __shared__ &lt;type&gt; &lt;name&gt;[]</code> (pg.7)</p>
+</li>
+<li>
+<p>dyanmic allocation: <code>nS</code> in <code>func&lt;&lt;&lt;nB, nT, nS&gt;&gt;&gt;(..);</code></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">extern __shared__ int S[][];
 __global__ void FW_APSP(int k, int D[n][n]) {
 int i = threadIdx.x;
 int j = threadIdx.y;
@@ -345,68 +347,65 @@ __syncthreads();
 // do computation
 if (S[i][j]&gt;S[i][k]+S[k][j])
 D[i][j]= S[i][k]+S[k][j];
-}</code></pre></div></li>
-
-<li><p>architecture</p>
-
+}
+</code></pre></div></li>
+<li>
+<p>architecture</p>
 <ul>
 <li>Each bank can service one address per cycle</li>
 <li>Shared memory is as fast as register if no bank conflict</li>
 <li>Shared memory banks are organized such that successive 32-bit words are assigned to successive banks and the bandwidth is 32 bits per bank per clock cycle.</li>
 <li>For devices of compute capability 1.x, the warp size is 32 threads and the number of banks is 16</li>
-<li><a href="https://stackoverflow.com/questions/7903566/how-is-2d-shared-memory-arranged-in-cuda">https://stackoverflow.com/questions/7903566/how-is-2d-shared-memory-arranged-in-cuda</a>
-<br /></li>
+<li><a href="https://stackoverflow.com/questions/7903566/how-is-2d-shared-memory-arranged-in-cuda">https://stackoverflow.com/questions/7903566/how-is-2d-shared-memory-arranged-in-cuda</a></li>
 </ul>
-
-<p><img src="https://i.imgur.com/j0CG2L0.png" alt="" /></p></li>
-</ul></li>
-
-<li><p>global memory</p>
-
+<p><img src="https://i.imgur.com/j0CG2L0.png" alt=""></p>
+</li>
+</ul>
+</li>
+<li>
+<p>global memory</p>
 <ul>
 <li>memory coalescing
-
 <ul>
 <li>Global memory access happens in transactions of 32 or 128 bytes</li>
 <li>The hardware will try to reduce to as few transactions as possible</li>
-<li>Coalesced access:
-&gt; A group of 32 contiguous threads (&ldquo;warp&rdquo;) accessing adjacent words. Few transactions and high utilization
-<br /></li>
-</ul></li>
-</ul></li>
-
-<li><p>constant memory</p>
-
+<li>Coalesced access:</li>
+</ul>
+<blockquote>
+<p>A group of 32 contiguous threads (&ldquo;warp&rdquo;) accessing adjacent words. Few transactions and high utilization</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>constant memory</p>
 <ul>
 <li>Same usage and scope as the global memory except
-
 <ul>
 <li>Read only</li>
 <li>Declare by variable qualifier <code>__constant__</code></li>
 <li>Move by cudaMemcpyToSymbol() &amp; cudaMemcpyFromSymbol()</li>
-</ul></li>
-</ul></li>
-
-<li><p>warp divergence
-<img src="https://i.imgur.com/t2dsPrn.png" alt="" /></p></li>
 </ul>
-
+</li>
+</ul>
+</li>
+<li>
+<p>warp divergence
+<img src="https://i.imgur.com/t2dsPrn.png" alt=""></p>
+</li>
+</ul>
 <h2 id="share-memory">share memory</h2>
-
 <ul>
 <li>ref: <a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#shared-memory-5-x">https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#shared-memory-5-x</a></li>
 <li>For compute capability 5.x and 6.x:
-
 <ul>
 <li>Shared memory has 32 banks that are organized such that successive <strong>32-bit words</strong> map to successive banks. Each bank has a bandwidth of 32 bits per clock cycle.</li>
 <li>bank index = (byte address / 4 bytes per bank) % 32 banks</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p><strong>to be continue (update please refer to <a href="https://hackmd.io/@yaohsiaopid/ryHNKkxTr">link</a>)</strong></p>
-
 <h2 id="reference">Reference</h2>
-
 <ul>
 <li><a href="https://docs.nvidia.com/cuda/">https://docs.nvidia.com/cuda/</a></li>
 <li><a href="https://nanxiao.me/en/about/">https://nanxiao.me/en/about/</a></li>
@@ -458,7 +457,7 @@ D[i][j]= S[i][k]+S[k][j];
     
       <p>yaohsiaopid at gmail.com</p>
     
-     © 2019
+     © 2020
     
        · 
       Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.

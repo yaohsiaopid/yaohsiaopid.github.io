@@ -55,7 +55,7 @@
 
     
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.65.2" />
   </head>
 
   <body class=" ">
@@ -115,16 +115,10 @@
       </header>
 
       <div>
-        
-
-<h1 id="edsim51">EdSim51</h1>
-
+        <h1 id="edsim51">EdSim51</h1>
 <p>This section starts with directly working on EdSim51, and this means this section will do operation with assembly.</p>
-
-<h2 id="what-is-edsim51">What is EdSim51 ?</h2>
-
+<h2 id="what-is-edsim51-">What is EdSim51 ?</h2>
 <p>Basically it simulates a complete embedded system, including LCD, LEDs, keypads, serial.</p>
-
 <figure>
     <img src="https://yaohsiaopid.github.io/images/edsimshot.png"
          alt="edsim screentshot"/> <figcaption>
@@ -132,19 +126,13 @@
         </figcaption>
 </figure>
 
-
-<h2 id="how-to-program-it">How to program it ?</h2>
-
+<h2 id="how-to-program-it-">How to program it ?</h2>
 <ul>
-<li>directly on bare metal &ndash;&gt; assembly :((
-<br /></li>
+<li>directly on bare metal &ndash;&gt; assembly :((</li>
 </ul>
-
 <p>Well, its quite low-level, for that you need to manage all the registers, memory, control flow by yourself by writing assembly, which is really hard to read. But the trade off: you will know <strong>how a computer really work!!!</strong></p>
-
 <p>Let&rsquo;s first try out light up its 7 segment display.
 To light up a 7 segment, we need to know which wire is connected to it, and which port is where we can send signal. Thus, let&rsquo;s see the architecture of the segment.</p>
-
 <figure>
     <img src="https://yaohsiaopid.github.io/images/edsimled.png"
          alt="edsim screentshot"/> <figcaption>
@@ -152,12 +140,12 @@ To light up a 7 segment, we need to know which wire is connected to it, and whic
         </figcaption>
 </figure>
 
-
 <p>So port <strong>P1 (address 90H)</strong> is connected to this 7 segment display.</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-asm" data-lang="asm">ORG 0H   
 MOV 90H, <span style="font-style:italic">#24H
-</span><span style="font-style:italic"></span>END</code></pre></div>
-<ul>
+</span><span style="font-style:italic"></span>END
+
+</code></pre></div><ul>
 <li>use SDCC compiler to translate your C code (human readable thankfully~) to assembly code</li>
 </ul>
 
@@ -197,7 +185,7 @@ MOV 90H, <span style="font-style:italic">#24H
     
       <p>yaohsiaopid at gmail.com</p>
     
-     © 2019
+     © 2020
     
        · 
       Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.

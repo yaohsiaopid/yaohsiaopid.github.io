@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Verilog on yao hsiao</title>
+    <title>verilog on yao hsiao</title>
     <link>https://yaohsiaopid.github.io/tags/verilog/</link>
-    <description>Recent content in Verilog on yao hsiao</description>
+    <description>Recent content in verilog on yao hsiao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 17 Oct 2019 14:33:16 +0800</lastBuildDate>
@@ -17,8 +17,9 @@
       <pubDate>Thu, 17 Oct 2019 14:33:16 +0800</pubDate>
       
       <guid>https://yaohsiaopid.github.io/posts/verilog_excerpts/</guid>
-      <description>module 3 intro  HSL supports multiple level of abstraction  behavior: algorithm RTL: nets and registers gate: built-in and user-define primitives switch  Abstraction example &amp;ndash; divided by 2
- behavioral:   always @(din) // block executed on every change in `din`  dout = din/2;   RTL:  always @(posedge clk) dout &amp;lt;= din &amp;gt;&amp;gt; 1; //speicial &amp;#34;nonblocking&amp;#34; assignment   Structural  FD1 op[3:0] ( .</description>
+      <description>module 3 intro   HSL supports multiple level of abstraction
+ behavior: algorithm RTL: nets and registers gate: built-in and user-define primitives switch    Abstraction example &amp;ndash; divided by 2
+ behavioral:  always @(din) // block executed on every change in `din`  dout = din/2;  RTL:  always @(posedge clk) dout &amp;lt;= din &amp;gt;&amp;gt; 1; //speicial &amp;#34;nonblocking&amp;#34; assignment  Structural  FD1 op[3:0] ( .</description>
     </item>
     
   </channel>

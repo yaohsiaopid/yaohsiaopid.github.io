@@ -55,7 +55,7 @@
 
     
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.65.2" />
   </head>
 
   <body class=" ">
@@ -118,148 +118,141 @@
       </header>
 
       <div>
-        
-
-<h2 id="module-3-intro">module 3 intro</h2>
-
+        <h2 id="module-3-intro">module 3 intro</h2>
 <ul>
-<li>HSL supports multiple level of abstraction
-
+<li>
+<p>HSL supports multiple level of abstraction</p>
 <ul>
 <li>behavior: algorithm</li>
 <li>RTL: nets and registers</li>
 <li>gate: built-in and user-define primitives</li>
 <li>switch</li>
-</ul></li>
-
-<li><p>Abstraction example &ndash; divided by 2</p>
-
+</ul>
+</li>
+<li>
+<p>Abstraction example &ndash; divided by 2</p>
 <ul>
-<li>behavioral:
-<br /></li>
+<li>behavioral:</li>
 </ul>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-verilog" data-lang="verilog"><span style="font-weight:bold">always</span> @(din)      <span style="font-style:italic">// block executed on every change in `din`
 </span><span style="font-style:italic"></span>    dout = din/2;
-</code></pre></div>
-<ul>
+</code></pre></div><ul>
 <li>RTL:</li>
 </ul>
-
-<p><img src="https://yaohsiaopid.github.io/images/rtl_eg.png" alt="" /></p>
+<p><img src="https://yaohsiaopid.github.io/images/rtl_eg.png" alt=""></p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-verilog" data-lang="verilog"><span style="font-weight:bold">always</span> @(<span style="font-weight:bold">posedge</span> clk)
     dout &lt;= din &gt;&gt; 1;   <span style="font-style:italic">//speicial &#34;nonblocking&#34; assignment
-</span><span style="font-style:italic"></span></code></pre></div>
-<ul>
+</span></code></pre></div><ul>
 <li>Structural</li>
 </ul>
-
-<p><img src="https://yaohsiaopid.github.io/images/structural.png" alt="" /></p>
+<p><img src="https://yaohsiaopid.github.io/images/structural.png" alt=""></p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-verilog" data-lang="verilog">FD1 op[3:0] (
     .D({1&#39;b0, din[3:1]}),
     .CP(clk), .Q(dout) );  <span style="font-style:italic">// instance array &#34;op&#34; of cell type &#34;FD1&#34;
-</span><span style="font-style:italic"></span></code></pre></div></li>
-
-<li><p>Prepare all text first ! vs. behavioral HDL</p></li>
+</span></code></pre></div></li>
+<li>
+<p>Prepare all text first ! vs. behavioral HDL</p>
+</li>
 </ul>
-
 <h2 id="module-4">Module 4</h2>
-
 <ul>
-<li><p>Design module</p>
+<li>
+<p>Design module</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-verilog" data-lang="verilog"><span style="font-weight:bold">module</span> halfadd(
     <span style="font-weight:bold">input</span> a, b, <span style="font-weight:bold">output</span> sum, carry
 );
     <span style="font-weight:bold">assign</span> sum = a ^ b;
     <span style="font-weight:bold">assign</span> carry = a &amp; b; <span style="font-style:italic">// continuous assignment
 </span><span style="font-style:italic"></span><span style="font-weight:bold">endmodule</span>
-</code></pre></div>
-<ul>
+</code></pre></div><ul>
 <li>Port of an instance can be connected either Named port or Ordered port</li>
 </ul>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-verilog" data-lang="verilog"><span style="font-weight:bold">module</span> fulladd(
-    <span style="font-weight:bold">input</span> a, b, cin, <span style="font-weight:bold">output</span> sum, carry
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">module fulladd(
+    input a, b, cin, output sum, carry
 );
-    <span style="">wire</span> n_sum, n_carry1, n_carry2;
+    wire n_sum, n_carry1, n_carry2;
     halfadd U1(.a(a), .b(b), .sum(n_sum), .carry(n_carry1));
     halfadd U2(.a(n_sum), .b(cin), .sum(sum), .carry(n_carry2));
-    <span style="font-weight:bold">or</span> U3(carry, n_carry2, n_carry1);
+    or U3(carry, n_carry2, n_carry1);
     
-<span style="font-weight:bold">endmodule</span>
+endmodule
 </code></pre></div></li>
-
-<li><p>Procedural block within a module</p>
-
+<li>
+<p>Procedural block within a module</p>
 <ul>
-<li><p><code>always</code></p>
-
+<li>
+<p><code>always</code></p>
 <ul>
 <li>synthesizable</li>
 <li>loop back at end</li>
 <li>event control</li>
 </ul>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">event_control ::=
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">event_control ::=
 @ event_identifier
 @ (event_expression)
 @*
-@ (*)</pre></div>
-<ul>
+@ (*)
+</code></pre></div><ul>
 <li>event expression:</li>
 </ul>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">event_expression ::=
-posedge expression</pre></div>
-<p>&hellip;&hellip;</p></li>
-</ul></li>
-
-<li><p><code>initial</code></p>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">event_expression ::=
+posedge expression
+</code></pre></div><p>&hellip;&hellip;</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>initial</code></p>
 <ul>
 <li>NON synthesizable / testbench</li>
 <li>exe at start of simulations</li>
-</ul></li>
-
-<li><p>multiple statements in procedural blocks are enclosed within <code>begin</code> and <code>end</code></p></li>
-
-<li><p>a group of statements can <code>sequentially</code> or <code>parallelly</code> execute within a block</p></li>
-
-<li><p>Concurrent execution of blocks: NO execution order is implied between procedural blocks</p></li>
 </ul>
-
+</li>
+<li>
+<p>multiple statements in procedural blocks are enclosed within <code>begin</code> and <code>end</code></p>
+</li>
+<li>
+<p>a group of statements can <code>sequentially</code> or <code>parallelly</code> execute within a block</p>
+</li>
+<li>
+<p>Concurrent execution of blocks: NO execution order is implied between procedural blocks</p>
+</li>
+</ul>
 <h2 id="module-5-data-type">module 5 data type</h2>
-
 <ul>
 <li>Nets
-
 <ul>
 <li>physical connection: <code>wire</code></li>
 <li>driven outside procedural block</li>
-</ul></li>
+</ul>
+</li>
 <li>Variables
-
 <ul>
 <li>abstract storage elements, can only be assigned in procedural block</li>
 <li><code>reg</code>, <code>integer</code></li>
-</ul></li>
+</ul>
+</li>
 <li>Prameters
-
 <ul>
 <li>run-time constant <code>parameter</code></li>
-</ul></li>
-
-<li><p>Connectivity (p. 60)</p>
-
+</ul>
+</li>
+<li>Connectivity (p. 60)
 <ul>
-<li><code>Nets</code> and <code>reg</code> are one-bit by default</li>
-
-<li><p>A port declaration implicitly declares a one-bit <code>wire</code>, a port is a net or variable that the module can connect its own net or variable to</p>
-
+<li>
+<p><code>Nets</code> and <code>reg</code> are one-bit by default</p>
+</li>
+<li>
+<p>A port declaration implicitly declares a one-bit <code>wire</code>, a port is a net or variable that the module can connect its own net or variable to</p>
 <ul>
-<li><p>A port permits an external net or variable to connect to an internal net or variable</p>
-
-<p><img src="https://yaohsiaopid.github.io/images/module_io.jpg" alt="" /></p></li>
-</ul></li>
-
-<li><p>vector: net or reg with a range <a href="p. 63">msb: lsb</a></p>
-
+<li>
+<p>A port permits an external net or variable to connect to an internal net or variable</p>
+<p><img src="https://yaohsiaopid.github.io/images/module_io.jpg" alt=""></p>
+</li>
+</ul>
+</li>
+<li>
+<p>vector: net or reg with a range [msb: lsb] (p. 63)</p>
 <ul>
 <li>eg. input [3:0] inp;</li>
 <li>variable selection</li>
@@ -273,39 +266,40 @@ posedge expression</pre></div>
     slice[0] = vect[index];
     ...
     slice = vect[index -: 2]; <span style="font-style:italic">// [index:index-2]
-</span><span style="font-style:italic"></span></code></pre></div></li>
-
-<li><p>literal values</p>
-
+</span></code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">
+</code></pre></div></li>
+<li>
+<p>literal values</p>
 <ul>
 <li><code>10'd100</code> = 10-bit decimal (unsigned)</li>
 <li><code>16'hffff</code> = 16 bit hexa</li>
 <li><code>8'b1110_0001</code> = 8 bit binary</li>
-</ul></li>
-
-<li><p>Nets:</p>
-
+</ul>
+</li>
+<li>
+<p>Nets:</p>
 <ul>
 <li>like physical wire, values are driven onto them</li>
-</ul></li>
-
-<li><p>Variables:</p>
-
+</ul>
+</li>
+<li>
+<p>Variables:</p>
 <ul>
 <li>hold values procedurally assigned; keep value until assigned as different value</li>
 <li><code>reg</code>(1 bit!), <code>integer</code>(signed 32 bit reg), <code>time</code></li>
 <li>read a variable&rsquo;s value from inside or outside a procedure</li>
-<li>write a variable&rsquo;s value ONLY INSIDE a procedure<br /></li>
+<li>write a variable&rsquo;s value ONLY INSIDE a procedure</li>
 <li>Within a procedure you write ONLY to variables</li>
-</ul></li>
-
-<li><p>array</p>
-
+</ul>
+</li>
+<li>
+<p>array</p>
 <ul>
 <li><code>reg [7:0] word, array [0:255]</code> // memory word(8-bit) and array(256 8-bit words)</li>
-</ul></li>
-
-<li><p>Module Parameters</p>
+</ul>
+</li>
+<li>
+<p>Module Parameters</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-verilog" data-lang="verilog"><span style="font-weight:bold">module</span> mux
 #(<span style="font-weight:bold">parameter</span> <span style="font-weight:bold">integer</span> WIDTH = 2)
 (<span style="font-weight:bold">input</span> <span style="">wire</span> [WIDTH-1:0] a, b,
@@ -314,28 +308,26 @@ posedge expression</pre></div>
 );
 <span style="font-style:italic">//...
 </span><span style="font-style:italic"></span><span style="font-weight:bold">endmodule</span>
-</code></pre></div>
-<ul>
-<li>local parameter <code>localparam</code></li>
-<li>parameter passing
-<br /></li>
-</ul>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">module mux
+</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  * local parameter `localparam`
+  * parameter passing
+		
+</code></pre></div><p>module mux
 #(parameter integer WIDTH = 2)
 (input wire [WIDTH-1:0] a, b,
  input wire             sel,
  output reg [WIDTH-1:0] op
 );
-//...
+//&hellip;
 defparam u2.width_b = 7;
 us_mult #(5,7) instance_1 (.a (a_net), .b(b_net), .result(f_o));
 us_mult #(.width(5)) instance_2 (.a (a_net), .b(b_net), .result(f_o));
-endmodule</pre></div></li>
-</ul></li>
+endmodule</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  
+</code></pre></div></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="module-6-verilog-operator">module 6 verilog operator</h2>
-
 <ul>
 <li>bit-wise: <code>~, &amp;, |, ^(xor)</code></li>
 <li>unary reduction: <code>&amp;, |, ^</code> eg. <code>val = &amp;vectr // 0 or 1</code></li>
@@ -343,36 +335,38 @@ endmodule</pre></div></li>
 <li>arithmetic: RTL-<code>+,-,*</code>, testbench: <code>/, %</code></li>
 <li>logical equality(for RTL): <code>==</code>, (for testbench): <code>===</code></li>
 <li>concatenation <code>{}</code></li>
-<li>replication <code>{const_expr {sized_expr}}</code>
-<br /></li>
+<li>replication <code>{const_expr {sized_expr}}</code></li>
 </ul>
-
 <h2 id="module-7-procedural-statements">module 7 procedural statements</h2>
-
 <ul>
-<li>continuous assignment is to a net and is its own process &ndash;&gt; outside any procedure</li>
-<li>procedural
-
+<li>
+<p>continuous assignment is to a net and is its own process &ndash;&gt; outside any procedure</p>
+</li>
+<li>
+<p>procedural</p>
 <ul>
 <li>procedural block:= <code>always</code>, <code>initial</code></li>
 <li>procedural assignments := assignments made inside procedures, only to variables</li>
-</ul></li>
-<li><code>if</code>: <code>if (expr) statement</code> non-synthesizable ==&gt; latch!!</li>
-<li><code>case</code> or <code>casez</code> for RTL:
-<code>verilog
-case (sel)
+</ul>
+</li>
+<li>
+<p><code>if</code>: <code>if (expr) statement</code> non-synthesizable ==&gt; latch!!</p>
+</li>
+<li>
+<p><code>case</code> or <code>casez</code> for RTL:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-verilog" data-lang="verilog"><span style="font-weight:bold">case</span> (sel)
     0: ...
-    default: ..
-endcase
-</code></li>
-<li><code>while</code>: only for testbench
-<code>verilog
-while(expr) begin
-//...
-end
-</code></li>
-
-<li><p><code>for</code>: for RTL only when unrollment is achievable</p>
+    <span style="font-weight:bold">default</span>: ..
+<span style="font-weight:bold">endcase</span>
+</code></pre></div></li>
+<li>
+<p><code>while</code>: only for testbench</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-verilog" data-lang="verilog"><span style="font-weight:bold">while</span>(expr) <span style="font-weight:bold">begin</span>
+<span style="font-style:italic">//...
+</span><span style="font-style:italic"></span><span style="font-weight:bold">end</span>
+</code></pre></div></li>
+<li>
+<p><code>for</code>: for RTL only when unrollment is achievable</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-verilog" data-lang="verilog"><span style="font-weight:bold">module</span> parity (
     <span style="font-weight:bold">input</span> [3:0] a,
     <span style="font-weight:bold">output</span> <span style="">reg</span> odd
@@ -385,36 +379,37 @@ end
             odd = odd ^ a[i];
     <span style="font-weight:bold">end</span>
 <span style="font-weight:bold">endmodule</span>
-</code></pre></div>
-<p><img src="https://yaohsiaopid.github.io/images/for_verilog.JPG" alt="" /></p></li>
+</code></pre></div><p><img src="https://yaohsiaopid.github.io/images/for_verilog.JPG" alt=""></p>
+</li>
 </ul>
-
 <h2 id="module-8-using-blocking-and-nonblocking-assignments">module 8 using blocking and nonblocking assignments</h2>
-
 <ul>
 <li>TL;DR:
-
 <ul>
 <li>blocking &ndash; combinational, in always body; nonblocking &ndash; for sequential ckt, becuz it onlyg assigns when event happens</li>
 <li>Used in procedural blocks</li>
-</ul></li>
-
-<li><p>blocking assignment</p>
-
+</ul>
+</li>
+<li>blocking assignment
 <ul>
-<li><code>variable = [delay_control] expression</code> OR <code>variable = [event_control] expression</code></li>
-<li>eg. <code>a = a + 1;</code></li>
-<li>blocks further execution until complete, complete immediately</li>
-
-<li><p>can lead to race condition</p>
+<li>
+<p><code>variable = [delay_control] expression</code> OR <code>variable = [event_control] expression </code></p>
+</li>
+<li>
+<p>eg. <code>a = a + 1;</code></p>
+</li>
+<li>
+<p>blocks further execution until complete, complete immediately</p>
+</li>
+<li>
+<p>can lead to race condition</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-verilog" data-lang="verilog"><span style="font-weight:bold">always</span> @(<span style="font-weight:bold">posedge</span> clk)
     a = a + 1;
 <span style="font-weight:bold">always</span> @(<span style="font-weight:bold">posedge</span> clk)
     b = a;
 </code></pre></div></li>
-
-<li><p>order matters (p.134)</p>
-
+<li>
+<p>order matters (p.134)</p>
 <ol>
 <li>b and c will not exist in hardware</li>
 </ol>
@@ -423,8 +418,7 @@ end
     c = b;
     d = c;
 <span style="font-weight:bold">end</span>
-</code></pre></div>
-<ol>
+</code></pre></div><ol start="2">
 <li>all exists</li>
 </ol>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-verilog" data-lang="verilog"><span style="font-weight:bold">always</span> @(<span style="font-weight:bold">posedge</span> clk) <span style="font-weight:bold">begin</span>
@@ -433,45 +427,52 @@ end
     b = a;
 <span style="font-weight:bold">end</span>
 </code></pre></div></li>
-</ul></li>
-
-<li><p>nonblocking assignment</p>
-
+</ul>
+</li>
+<li>nonblocking assignment
 <ul>
-<li><code>variable &lt;= [delay_control] expression</code> OR <code>variable &lt;= [event_control] expression</code></li>
-<li>complete when all executing blocks have blocked</li>
-
-<li><p><strong>for sequential logics</strong>!!!</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">always @(posedge clk)
+<li>
+<p><code>variable &lt;= [delay_control] expression</code> OR <code>variable &lt;= [event_control] expression</code></p>
+</li>
+<li>
+<p>complete when all executing blocks have blocked</p>
+</li>
+<li>
+<p><strong>for sequential logics</strong>!!!</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">always @(posedge clk)
     a &lt;= a + 1;
 always @(posedge clk)
-    b &lt;= a;</pre></div>
-<ol>
+    b &lt;= a;
+</code></pre></div><ol>
 <li>procedural blocks unblock on positive edge</li>
 <li>execute, and yet update value, just schedule</li>
 <li>After executing all triggered blocks to the point where they block, simulator completes the onoblocking assignment by updating values</li>
-</ol></li>
-</ul></li>
-
-<li><p>practice</p>
-
+</ol>
+</li>
+</ul>
+</li>
+<li>practice
 <ul>
-<li>use blocking assignment to intermediate(temporary, <strong>only be used in one block</strong>) variables within sequential procedures</li>
-
-<li><p>assign temporary variables(combinational result) to outputs with nonblocking assignment(sequential ckt)</p></li>
-
-<li><p>eg
-<img src="https://i.imgur.com/6KSkSBS.jpg" alt="" /></p></li>
-
-<li><p>eg</p>
+<li>
+<p>use blocking assignment to intermediate(temporary, <strong>only be used in one block</strong>) variables within sequential procedures</p>
+</li>
+<li>
+<p>assign temporary variables(combinational result) to outputs with nonblocking assignment(sequential ckt)</p>
+</li>
+<li>
+<p>eg
+<img src="https://i.imgur.com/6KSkSBS.jpg" alt=""></p>
+</li>
+<li>
+<p>eg</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-verilog" data-lang="verilog"><span style="font-weight:bold">always</span> @(<span style="font-weight:bold">posedge</span> clk) <span style="font-weight:bold">begin</span>
     <span style="font-weight:bold">integer</span> temp;
     temp = a + b;
     q &lt;= temp + c;
 <span style="font-weight:bold">end</span>
 </code></pre></div></li>
-
-<li><p>eg. register ?</p>
+<li>
+<p>eg. register ?</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-verilog" data-lang="verilog"><span style="font-weight:bold">module</span> myreg(
     <span style="font-weight:bold">input</span> data_in, load, clk,
     <span style="font-weight:bold">output</span> data_out
@@ -481,90 +482,83 @@ always @(posedge clk)
         data_out &lt;= data_in &amp; load;
 <span style="font-weight:bold">endmodule</span>
 </code></pre></div></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="module-9-continuous-and-procedural-assignment">module 9 continuous and procedural assignment</h2>
-
 <ul>
 <li>continuous assignment <code>assign &lt;&gt;=&lt;&gt;</code> : <strong>to nets</strong>
-
 <ul>
 <li>continuously drives thet net only outside procedural blocks</li>
-</ul></li>
+</ul>
+</li>
 <li>procedural assignment: procedural blocks, <strong>to variables</strong></li>
 <li><code>generate</code> p. 155</li>
 <li>eg. 9_1 p.164 <em>todo</em></li>
 </ul>
-
 <h2 id="module-10-understanding-simulation-cycles">module 10 understanding simulation cycles</h2>
-
 <ul>
 <li>reviews previous materials(p.167)</li>
 <li>synchronizing procedures: event controls
-
 <ul>
 <li><code>@ event_identifier</code>, <code>@*</code></li>
 <li>level-sensitive control (for testbench):
 <code>wait (epxr) statement</code> (<strong>don&rsquo;t use</strong>)</li>
 <li>delay control (only for testbench): <code># ( expr )</code> (p.182)</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="module-11-functions-and-tasks">module 11 functions and tasks</h2>
-
 <ul>
 <li>TL;DR: use task only in testbench within module, don&rsquo;t use function</li>
-
-<li><p>task</p>
-
+<li>task
 <ul>
 <li>declared only within a module</li>
 <li><code>task</code>, <code>endtask</code></li>
 <li>static, ie. all calls to the task utilize that one set of task variables</li>
 <li>eg.(p.194)
-<code>verilog
-task zcount (
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-verilog" data-lang="verilog"><span style="font-weight:bold">task</span> zcount (
     intput [7:0] in_bus,
-    output [3:0] count
+    <span style="font-weight:bold">output</span> [3:0] count
 ); 
-integer i;
-begin
+<span style="font-weight:bold">integer</span> i;
+<span style="font-weight:bold">begin</span>
     count = 0;
-    for(i = 0; i &lt;= 7; i=i+1)
-        if(!in_bus[i]) count = count + 1;
+    <span style="font-weight:bold">for</span>(i = 0; i &lt;= 7; i=i+1)
+        <span style="font-weight:bold">if</span>(!in_bus[i]) count = count + 1;
     #5
-end
-endtask
-</code></li>
-
-<li><p>p208 <em>todo</em></p>
-
-<h2 id="module-12-copmiler">module 12 copmiler</h2></li>
-</ul></li>
-
-<li><p><code>include</code> p.213</p>
-
-<h2 id="module-13-synthesis">module 13 synthesis</h2></li>
-
-<li><p>design constraint, hold/setup time p.226</p>
-
-<h2 id="module-14-coding-rtl-for-synthesis">module 14 coding rtl for synthesis</h2></li>
-
-<li><p>combinational logics(p.242)</p>
-
+<span style="font-weight:bold">end</span>
+<span style="font-weight:bold">endtask</span>
+</code></pre></div></li>
+<li>p208 <em>todo</em></li>
+</ul>
+</li>
+</ul>
+<h2 id="module-12-copmiler">module 12 copmiler</h2>
 <ul>
-<li>methods:
-
+<li><code>include</code> p.213</li>
+</ul>
+<h2 id="module-13-synthesis">module 13 synthesis</h2>
+<ul>
+<li>design constraint, hold/setup time p.226</li>
+</ul>
+<h2 id="module-14-coding-rtl-for-synthesis">module 14 coding rtl for synthesis</h2>
+<ul>
+<li>combinational logics(p.242)
+<ul>
+<li>
+<p>methods:</p>
 <ul>
 <li><strong>net declaration</strong>: <code>wire w = expr;</code></li>
 <li><strong>continuous assignment</strong>: <code>wire w; assign w = expr;</code></li>
 <li>always: <code>reg r; always @* r = expr;</code></li>
-</ul></li>
-<li>not recommend to use temporary variable in combinational logics</li>
-
-<li><p><strong>do not place temporary variables in the sensitivity list</strong></p>
-
+</ul>
+</li>
+<li>
+<p>not recommend to use temporary variable in combinational logics</p>
+</li>
+<li>
+<p><strong>do not place temporary variables in the sensitivity list</strong></p>
 <ul>
 <li>a temporary variable is one that procedure writes only before it reads and that no other procedure uses</li>
 </ul>
@@ -575,35 +569,37 @@ endtask
     q = temp + c;
 <span style="font-weight:bold">end</span>
 </code></pre></div></li>
-
-<li><p>avoid latch !! (only gate clock will use latch)</p>
-
-<p><img src="https://i.imgur.com/Gymx1EH.jpg" alt="" /></p></li>
-
-<li><p>continuous assignment:</p>
-
+<li>
+<p>avoid latch !! (only gate clock will use latch)</p>
+<p><img src="https://i.imgur.com/Gymx1EH.jpg" alt=""></p>
+</li>
+<li>
+<p>continuous assignment:</p>
 <ul>
 <li>drive values onto nets</li>
-</ul></li>
-</ul></li>
-
-<li><p>sequential logic</p>
-
+</ul>
+</li>
+</ul>
+</li>
+<li>sequential logic
 <ul>
-<li><p>always:</p>
+<li>
+<p>always:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-verilog" data-lang="verilog"><span style="font-weight:bold">always</span> @( clock edges <span style="font-weight:bold">or</span> other ) <span style="font-weight:bold">begin</span> <span style="font-style:italic">//other: asynchronos set and reset 
 </span><span style="font-style:italic"></span>    <span style="font-style:italic">// non-blocking assignments
 </span><span style="font-style:italic"></span><span style="font-weight:bold">end</span>
 </code></pre></div></li>
-
-<li><p>inferred as registers: non-temporary variables assigned in sequential procedures</p></li>
-
-<li><p>synthesis tools recognize sequential procedures by lookgin for a particular code template (i.e event list containing only edge signals)</p></li>
-
-<li><p>eg.</p>
-
+<li>
+<p>inferred as registers: non-temporary variables assigned in sequential procedures</p>
+</li>
+<li>
+<p>synthesis tools recognize sequential procedures by lookgin for a particular code template (i.e event list containing only edge signals)</p>
+</li>
+<li>
+<p>eg.</p>
 <ul>
-<li><p>asynch (not recommended, hardware reset, if edge of clk and rst are close: !!??? explode~)</p>
+<li>
+<p>asynch (not recommended, hardware reset, if edge of clk and rst are close: !!??? explode~)</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-verilog" data-lang="verilog"><span style="font-weight:bold">always</span> @(<span style="font-weight:bold">posedge</span> clk <span style="font-weight:bold">or</span> <span style="font-weight:bold">posedge</span> rst) <span style="font-weight:bold">begin</span>
     <span style="font-weight:bold">if</span>(rst) count &lt;= 4&#39;d0;
     <span style="font-weight:bold">else</span> <span style="font-weight:bold">begin</span> 
@@ -612,8 +608,8 @@ endtask
     <span style="font-weight:bold">end</span>
 <span style="font-weight:bold">end</span>
 </code></pre></div></li>
-
-<li><p>synchronous reset, P&amp;R synthesis more convenient, resistant to glitch of rst</p>
+<li>
+<p>synchronous reset, P&amp;R synthesis more convenient, resistant to glitch of rst</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-verilog" data-lang="verilog"><span style="font-weight:bold">always</span> @(<span style="font-weight:bold">posedge</span> clk) <span style="font-weight:bold">begin</span>
     <span style="font-weight:bold">if</span>(rst) 
         count &lt;= 4&#39;d0;
@@ -625,9 +621,10 @@ endtask
     <span style="font-weight:bold">end</span> 
 <span style="font-weight:bold">end</span>
 </code></pre></div></li>
-</ul></li>
-
-<li><p>template</p>
+</ul>
+</li>
+<li>
+<p>template</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-verilog" data-lang="verilog"><span style="font-style:italic">// control relevant need initilization
 </span><span style="font-style:italic"></span><span style="font-weight:bold">always</span> @(<span style="font-weight:bold">posedge</span> clk) <span style="font-weight:bold">begin</span>
     <span style="font-weight:bold">if</span> (!rst) <span style="font-weight:bold">begin</span>
@@ -637,68 +634,55 @@ endtask
 </span><span style="font-style:italic"></span>    <span style="font-weight:bold">end</span> 
 <span style="font-weight:bold">end</span> 
 </code></pre></div></li>
-
-<li><p>incomplete assignment in sequential procedure does not infer a latch, because alreayd a storage</p>
+<li>
+<p>incomplete assignment in sequential procedure does not infer a latch, because alreayd a storage</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-verilog" data-lang="verilog">alwyas @(<span style="font-weight:bold">posedge</span> clk)
     <span style="font-weight:bold">if</span>(enb)
         q &lt;= d;
-</code></pre></div>
-<p><img src="https://i.imgur.com/b4W2iy9.jpg" alt="" /></p></li>
-
-<li><p>temporary variables , p257, written first and then read, alias for expr so <strong>no reg is inferred</strong></p>
-
-<p><img src="https://i.imgur.com/NEc3Km1.jpg" alt="" /></p></li>
-
-<li><p><code>parallel_case</code>: p261</p></li>
-</ul></li>
+</code></pre></div><p><img src="https://i.imgur.com/b4W2iy9.jpg" alt=""></p>
+</li>
+<li>
+<p>temporary variables , p257, written first and then read, alias for expr so <strong>no reg is inferred</strong></p>
+<p><img src="https://i.imgur.com/NEc3Km1.jpg" alt=""></p>
+</li>
+<li>
+<p><code>parallel_case</code>: p261</p>
+</li>
 </ul>
-
+</li>
+</ul>
 <h2 id="module-15-finite-state-machine">module 15 Finite State Machine</h2>
-
 <ul>
-<li><p>control logics: FSM vs datapath: comb logics
-<img src="https://i.imgur.com/2fdn2DU.jpg" alt="" /></p>
-
+<li>
+<p>control logics: FSM vs datapath: comb logics
+<img src="https://i.imgur.com/2fdn2DU.jpg" alt=""></p>
 <ul>
-<li>define FSM states: Parameters
-```verilog
-localparam IDLE = 2&rsquo;d0, READ =2&rsquo;d1; //&hellip;..
-reg [1:0] state, nstate;
-always @*
-case(state)
-    IDLE: nstate = do_write ? WRITE: READ;
-    //..
-<br /></li>
+<li>define FSM states: Parameters</li>
 </ul>
-
-<p>```
-* <strong>eg. p279</strong></p></li>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-verilog" data-lang="verilog"><span style="font-weight:bold">localparam</span> IDLE = 2&#39;d0, READ =2&#39;d1; <span style="font-style:italic">//.....
+</span><span style="font-style:italic"></span><span style="">reg</span> [1:0] state, nstate;
+<span style="font-weight:bold">always</span> @*
+    <span style="font-weight:bold">case</span>(state)
+        IDLE: nstate = do_write ? WRITE: READ; 
+        <span style="font-style:italic">//..
+</span><span style="font-style:italic"></span>      
+</code></pre></div><ul>
+<li><strong>eg. p279</strong></li>
 </ul>
-
-<p><img src="./images/fsm_eg.JPG" alt="" /></p>
-
+</li>
+</ul>
+<p><img src="./images/fsm_eg.JPG" alt=""></p>
 <h2 id="module-16">module 16</h2>
-
 <p>p.301</p>
-
 <h2 id="module-17-rtl-coding-process">module 17 RTL coding process　</h2>
-
 <p>p.308</p>
-
 <h2 id="todo"><em>todo</em>:</h2>
-
 <h2 id="module-19-coding-and-synthesizing-an-example-verilog-design">module 19 coding and synthesizing an example verilog design</h2>
-
 <h2 id="module-20-using-verification-construct-for-testbench">module 20 using verification construct (for testbench)</h2>
-
 <p>p.376</p>
-
 <h2 id="module-21-coding-design-behavior-algorithmically">module 21 coding design behavior algorithmically</h2>
-
 <p>p.392</p>
-
 <h2 id="module-22-system-tasks-and-system-functions">module 22 system tasks and system functions</h2>
-
 <p>p.407</p>
 
       </div>
@@ -737,7 +721,7 @@ case(state)
     
       <p>yaohsiaopid at gmail.com</p>
     
-     © 2019
+     © 2020
     
        · 
       Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
